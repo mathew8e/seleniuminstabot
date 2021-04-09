@@ -1,6 +1,7 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 import sys
+from operations import operations
 
 #check if a headless switch is
 chrome_options = Options()
@@ -9,3 +10,4 @@ if 1 in range(-len(sys.argv), len(sys.argv)):
         chrome_options.headless = True
 
 dr = webdriver.Chrome(options=chrome_options)
+operations(dr)
