@@ -3,12 +3,21 @@ from selenium.webdriver.chrome.options import Options
 import sys
 from operations import operations
 
-#check if a headless switch is
-chrome_options = Options()
-if 1 in range(-len(sys.argv), len(sys.argv)):
-    if sys.argv[1] == "--headless":
-        chrome_options.headless = True
+try:
+    global dr
+    #check if a headless switch is
+    chrome_options = Options()
+    if 1 in range(-len(sys.argv), len(sys.argv)):
+        if sys.argv[1] == "--headless":
+            chrome_options.headless = True
 
-print("-------loading the selenium module--------")
-dr = webdriver.Chrome(options=chrome_options)
-operations(dr)
+    print("-------loading the selenium module--------")
+    dr = webdriver.Chrome(options=chrome_options)
+    operations(dr)
+
+except KeyboardInterrupt:
+    try:
+        dr.quit()
+        print("quitting all")
+    except:
+        print("exiting")
