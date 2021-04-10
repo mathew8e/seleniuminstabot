@@ -18,6 +18,6 @@ try:
 except KeyboardInterrupt:
     try:
         dr.quit()
-        print("quitting all")
+        print("quitting all...")
     except:
-        print("exiting")
+        print("exiting...")
